@@ -140,7 +140,6 @@ states1 = gsub('^\\s+','',as.character(p1[3,]))
 d1 = data.frame(
   states = states1,
   pop = as.numeric(gsub(',','',as.character(p1[4,]))),
-  size = 
   stringsAsFactors = FALSE
 )
 
@@ -233,7 +232,7 @@ library(ggrepel)
 ggplot(da, aes(pop/1e6, fatalities.per.pop, col=aff)) +
   geom_point(size=2) +
   xlab(expression(paste("State Population (10"^6,")"))) + 
-  ylab("Car Fatalities per Population") + 
+  ylab("Car Fatalities per Million Population") + 
   scale_color_manual(values=c("blue", "grey", "red")) +
   scale_y_continuous(limits=c(0,250)) + 
   scale_x_log10() +
@@ -241,4 +240,4 @@ ggplot(da, aes(pop/1e6, fatalities.per.pop, col=aff)) +
   theme_bw() +
   theme(legend.position = c(0.95,0.95),
         legend.justification = c(1,1))
-ggsave('fatalities.per.population.us.png', width=8, height=6, dpi=120)
+ggsave('fatalities.per.population.us.png', width=8, height=6, dpi=150)
